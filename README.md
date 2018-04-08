@@ -1,1 +1,2 @@
-# ChenyangMeng_ME433_2018
+# ME433 Advanced Mechatronics
+By Chenyang Meng
