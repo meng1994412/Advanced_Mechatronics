@@ -72,7 +72,7 @@ int main() {
            LATAbits.LATA4 = 0; // pin RB4 is Pushbutton, if Pushbutton is pushed, LED goes to low
          }
        }
-       LATAINV = 0x10;
+       LATAINV = 0x10; // flip bits 0 and 1
        //LATAbits.LATA4 = !LATAbits.LATA4;
     }
 }
