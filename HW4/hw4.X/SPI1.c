@@ -39,5 +39,5 @@ void setVoltage(char channel, unsigned char voltage) {
   SPI1_IO(MSB);
   SPI1_IO(LSB);
   CS = 1;                     // deactivate the SPI1 by rasing the line to high, ending the communication
-  
+
 }
