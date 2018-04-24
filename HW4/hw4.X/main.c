@@ -40,23 +40,28 @@
 
 
 int main() {
-    //__builtin_disable_interrupts();
-    SPI1_init();
-   // __builtin_enable_interrupts();
+  int i;
+  __builtin_disable_interrupts();
 
-    while(1) {
-        // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
-        for(int i = 0; i < 200; i++){
+  initSPI1();
 
-            _CP0_SET_COUNT(0);  // Reset the timer
-            setVoltage(CHANNELA,510+510*sin((float)i*0.02*PI));
+  __builtin_enable_interrupts();
 
-            if(i<100)
-                setVoltage(CHANNELB,10*(float)i);
-            else
-                setVoltage(CHANNELB,1000-10*((float)i-100));
-                
-            while(_CP0_GET_COUNT() < 12000){;}  // 24MHz/1kHz = 24000
-        }
+  while(1) {
+    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
+    // remember the core timer runs at half the sysclk
+    for (i = 0; i < 200; i++) {
+      float sineWave = 510 + 510 * sin(i * 0.02 * PI);
+      float triangleWave1 = 10.0 * i;
+      float triangleWave2 = 1000-10*(i-100.0);
+      _CP0_SET_COUNT(0);      // reset the timer
+      setVoltage(CHANNELA, sineWave);
+      if (i < 100) {
+        setVoltage(CHANNELB, triangleWave1);
+      } else {
+        setVoltage(CHANNELB, triangleWave2);
+      }
+      while (_CP0_GET_COUNT() < 24000) { ; } // 24MHz / 1kHz = 24000
     }
+  }
 }
