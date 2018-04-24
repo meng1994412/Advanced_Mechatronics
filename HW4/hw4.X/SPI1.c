@@ -19,21 +19,21 @@ void initSPI1(void) {
 }
 
 // send a byte via SPI and return the response
-char SPI1_IO(char write) {
+char SPI1_IO(unsigned char write) {
   SPI1BUF = write;
   while(!SPI1STATbits.SPIRBF) { ; } // wait until the master receives the data
   return SPI1BUF;
 }
 
 // where channel is 0 or 1 (for VoutA and VoutB), and voltage is the 10-bit output level.
-void setVoltage(char channel, unsigned char voltage) {
+void setVoltage(char channel, unsigned short voltage) {
   unsigned char LSB, MSB;
 
   MSB =  channel << 7;
   MSB |= 0b01110000;
   MSB |= voltage >> 6;
 
-  LSB = (voltage << 2) & 0b11111111; // 0xFF
+  LSB = (voltage << 2) & 0x00FF
 
   CS = 0;                     // activate SPI1 by setting the chip line low
   SPI1_IO(MSB);

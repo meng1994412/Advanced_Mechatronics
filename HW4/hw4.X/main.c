@@ -51,9 +51,9 @@ int main() {
     // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
     // remember the core timer runs at half the sysclk
     for (i = 0; i < 200; i++) {
-      float sineWave = 510 + 510 * sin(i * 0.02 * PI);
-      float triangleWave1 = 10.0 * i;
-      float triangleWave2 = 1000-10*(i-100.0);
+      short sineWave = 510 + 510 * sin(i * 0.02 * PI);
+      short triangleWave1 = 10.0 * i;
+      short triangleWave2 = 1000 - 10 * (i - 100.0);
       _CP0_SET_COUNT(0);      // reset the timer
       setVoltage(CHANNELA, sineWave);
       if (i < 100) {
