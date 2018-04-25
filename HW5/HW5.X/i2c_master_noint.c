@@ -7,27 +7,27 @@
 // I2C pins need pull-up resistors, 2k-10k
 
 void i2c_master_setup(void) {
-    I2C2BRG = 0xE9;                 // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2
-                                    // Pblck = 48MHz, Fsck = 100kHz, time(PGD)=104ns,
-                                    // I2CBRG = 233
+    I2C2BRG = 0x35;                 // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2
+                                    // Pblck = 48MHz, Fsck = 400kHz, time(PGD)=104ns,
+                                    // I2CBRG = 53
     I2C2CONbits.ON = 1;             // turn on the I2C1 module
 }
 
 // Start a transmission on the I2C bus
 void i2c_master_start(void) {
     I2C2CONbits.SEN = 1;            // send the start bit
-    while(I2C1CONbits.SEN) { ; }    // wait for the start bit to be sent
+    while(I2C2CONbits.SEN) { ; }    // wait for the start bit to be sent
 }
 
 void i2c_master_restart(void) {
     I2C2CONbits.RSEN = 1;           // send a restart
-    while(I2C1CONbits.RSEN) { ; }   // wait for the restart to clear
+    while(I2C2CONbits.RSEN) { ; }   // wait for the restart to clear
 }
 
-void i2c_master_send(unsigned char byte) { // send a byte to slave
-    I2C2TRN = byte;                   // if an address, bit 0 = 0 for write, 1 for read
-    while(I2C2STATbits.TRSTAT) { ; }  // wait for the transmission to finish
-    if(I2C2STATbits.ACKSTAT) {        // if this is high, slave has not acknowledged
+void i2c_master_send(unsigned char byte) {  // send a byte to slave
+    I2C2TRN = byte;                         // if an address, bit 0 = 0 for write, 1 for read
+    while(I2C2STATbits.TRSTAT) { ; }        // wait for the transmission to finish
+    if(I2C2STATbits.ACKSTAT) {              // if this is high, slave has not acknowledged
     // ("I2C2 Master: failed to receive ACK\r\n");
     }
 }
