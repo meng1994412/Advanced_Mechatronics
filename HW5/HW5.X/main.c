@@ -36,7 +36,7 @@
 #pragma config FUSBIDIO = ON // USB pins controlled by USB module
 #pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
-#define SLAVE_ADDR 0x20
+#define SLAVE_ADDR 0x20   //0b0010 0000
 
 void initExpander(void);
 void setExpander(char pin, char level);
@@ -78,7 +78,7 @@ void initExpander(void) {
     i2c_master_send(SLAVE_ADDR << 1);   // OP+W: R/W = 0 = write
     i2c_master_send(0x00);              // ADDR: IODIR, set the address
     i2c_master_send(0xF0);              // Din/Dout: set GP4-7 input and GP0-3 output
-    i2c_master_stop();                  // P
+    i2c_master_stop();                  // P: Stop
 }
 
 void setExpander(char pin, char level) {
@@ -86,7 +86,7 @@ void setExpander(char pin, char level) {
     i2c_master_send(SLAVE_ADDR << 1);   // OP+W: R/W = 0 write
     i2c_master_send(0x0A);              // ADDR: OLAT, set the output latch address
     i2c_master_send(level << pin);      // Dout: set pin high/low
-    i2c_master_stop();
+    i2c_master_stop();                  // P: Stop
 }
 
 char getExpander() {
@@ -98,6 +98,6 @@ char getExpander() {
     i2c_master_send(SLAVE_ADDR << 1 | 1)// OP+R: R/W = 1 = read
     status = i2c_master_recv();
     i2c_master_ack(1);                  // no more bytes requested from SLAVE
-    i2c_master_stop();
+    i2c_master_stop();                  // P: Stop
     return status;
 }
