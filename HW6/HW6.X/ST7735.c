@@ -69,156 +69,156 @@ void LCD_data16(unsigned short dat) {
 
 void LCD_init() {
     SPI1_init();
-  int time = 0;
-  LCD_command(ST7735_SWRESET);//software reset
-  time = _CP0_GET_COUNT();
-  while (_CP0_GET_COUNT() < time + 48000000/2/2) {}
+    int time = 0;
+    LCD_command(ST7735_SWRESET);//software reset
+    time = _CP0_GET_COUNT();
+    while (_CP0_GET_COUNT() < time + 48000000/2/2) {}
 
-	LCD_command(ST7735_SLPOUT);//exit sleep
-  time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/200) {}
+  	LCD_command(ST7735_SLPOUT);//exit sleep
+    time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/200) {}
 
-	LCD_command(ST7735_FRMCTR1);//Frame Rate Control (In normal mode/Full colors)
-	LCD_data(0x01);
-	LCD_data(0x2C);
-	LCD_data(0x2D);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_FRMCTR1);//Frame Rate Control (In normal mode/Full colors)
+  	LCD_data(0x01);
+  	LCD_data(0x2C);
+  	LCD_data(0x2D);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_FRMCTR2);//Frame Rate Control (In normal mode/Full colors)
-	LCD_data(0x01);
-	LCD_data(0x2C);
-	LCD_data(0x2D);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_FRMCTR2);//Frame Rate Control (In normal mode/Full colors)
+  	LCD_data(0x01);
+  	LCD_data(0x2C);
+  	LCD_data(0x2D);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_FRMCTR3);//Frame Rate Control (In normal mode/Full colors)
-	LCD_data(0x01);
-	LCD_data(0x2C);
-	LCD_data(0x2D);
-	LCD_data(0x01);
-	LCD_data(0x2C);
-	LCD_data(0x2D);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_FRMCTR3);//Frame Rate Control (In normal mode/Full colors)
+  	LCD_data(0x01);
+  	LCD_data(0x2C);
+  	LCD_data(0x2D);
+  	LCD_data(0x01);
+  	LCD_data(0x2C);
+  	LCD_data(0x2D);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_INVCTR);//display inversion
-	LCD_data(0x07);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_INVCTR);//display inversion
+  	LCD_data(0x07);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_PWCTR1);
-	LCD_data(0x0A);//4.30 - 0x0A
-	LCD_data(0x02);//0x05
-	LCD_data(0x84);//added auto mode
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_PWCTR1);
+  	LCD_data(0x0A);//4.30 - 0x0A
+  	LCD_data(0x02);//0x05
+  	LCD_data(0x84);//added auto mode
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_PWCTR2);
-	LCD_data(0xC5);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_PWCTR2);
+  	LCD_data(0xC5);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command( ST7735_PWCTR3);
-	LCD_data(0x0A);
-	LCD_data(0x00);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command( ST7735_PWCTR3);
+  	LCD_data(0x0A);
+  	LCD_data(0x00);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command( ST7735_PWCTR4);
-	LCD_data(0x8A);
-	LCD_data(0x2A);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command( ST7735_PWCTR4);
+  	LCD_data(0x8A);
+  	LCD_data(0x2A);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command( ST7735_PWCTR5);
-	LCD_data(0x8A);
-	LCD_data(0xEE);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command( ST7735_PWCTR5);
+  	LCD_data(0x8A);
+  	LCD_data(0xEE);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_VMCTR1);
-	LCD_data(0x0E);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_VMCTR1);
+  	LCD_data(0x0E);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_INVOFF);
+  	LCD_command(ST7735_INVOFF);
 
-	LCD_command(ST7735_MADCTL);
-	LCD_data(0xC8);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_MADCTL);
+  	LCD_data(0xC8);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_COLMOD);
-	LCD_data(0x05);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_COLMOD);
+  	LCD_data(0x05);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_CASET);
-	LCD_data(0x00);
-	LCD_data(0x00);
-	LCD_data(0x00);
-	LCD_data(0x7F);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_CASET);
+  	LCD_data(0x00);
+  	LCD_data(0x00);
+  	LCD_data(0x00);
+  	LCD_data(0x7F);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_RASET);
-	LCD_data(0x00);
-	LCD_data(0x00);
-	LCD_data(0x00);
-	LCD_data(0x9F);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_RASET);
+  	LCD_data(0x00);
+  	LCD_data(0x00);
+  	LCD_data(0x00);
+  	LCD_data(0x9F);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_GMCTRP1);
-	LCD_data(0x02);
-	LCD_data(0x1C);
-	LCD_data(0x07);
-	LCD_data(0x12);
-	LCD_data(0x37);
-	LCD_data(0x32);
-	LCD_data(0x29);
-	LCD_data(0x2D);
-	LCD_data(0x29);
-	LCD_data(0x25);
-	LCD_data(0x2B);
-	LCD_data(0x39);
-	LCD_data(0x00);
-	LCD_data(0x01);
-	LCD_data(0x03);
-	LCD_data(0x10);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_GMCTRP1);
+  	LCD_data(0x02);
+  	LCD_data(0x1C);
+  	LCD_data(0x07);
+  	LCD_data(0x12);
+  	LCD_data(0x37);
+  	LCD_data(0x32);
+  	LCD_data(0x29);
+  	LCD_data(0x2D);
+  	LCD_data(0x29);
+  	LCD_data(0x25);
+  	LCD_data(0x2B);
+  	LCD_data(0x39);
+  	LCD_data(0x00);
+  	LCD_data(0x01);
+  	LCD_data(0x03);
+  	LCD_data(0x10);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_GMCTRN1);
-	LCD_data(0x03);
-	LCD_data(0x1D);
-	LCD_data(0x07);
-	LCD_data(0x06);
-	LCD_data(0x2E);
-	LCD_data(0x2C);
-	LCD_data(0x29);
-	LCD_data(0x2D);
-	LCD_data(0x2E);
-	LCD_data(0x2E);
-	LCD_data(0x37);
-	LCD_data(0x3F);
-	LCD_data(0x00);
-	LCD_data(0x00);
-	LCD_data(0x02);
-	LCD_data(0x10);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
+  	LCD_command(ST7735_GMCTRN1);
+  	LCD_data(0x03);
+  	LCD_data(0x1D);
+  	LCD_data(0x07);
+  	LCD_data(0x06);
+  	LCD_data(0x2E);
+  	LCD_data(0x2C);
+  	LCD_data(0x29);
+  	LCD_data(0x2D);
+  	LCD_data(0x2E);
+  	LCD_data(0x2E);
+  	LCD_data(0x37);
+  	LCD_data(0x3F);
+  	LCD_data(0x00);
+  	LCD_data(0x00);
+  	LCD_data(0x02);
+  	LCD_data(0x10);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/1000) {}
 
-	LCD_command(ST7735_NORON);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/100) {}
+  	LCD_command(ST7735_NORON);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/100) {}
 
-	LCD_command(ST7735_DISPON);
-	time = _CP0_GET_COUNT();
-	while (_CP0_GET_COUNT() < time + 48000000/2/10) {}
+  	LCD_command(ST7735_DISPON);
+  	time = _CP0_GET_COUNT();
+  	while (_CP0_GET_COUNT() < time + 48000000/2/10) {}
 
-	LCD_command(ST7735_MADCTL); // rotation
+  	LCD_command(ST7735_MADCTL); // rotation
     LCD_data(MADCTL_MX | MADCTL_MY | MADCTL_RGB);
 }
 
@@ -246,4 +246,29 @@ void LCD_clearScreen(unsigned short color) {
 	for (i = 0;i < _GRAMSIZE; i++){
 		LCD_data16(color);
 	}
+}
+
+void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short color1, unsigned short color2) {
+  int column, bit;        // count column number and bit number
+  char row = ch - 0x20;   // since the space (first one) start at 0x20 in ascii table
+  for (column = 0; column < CHAR_COL; column++) {
+    char pixel = ASCII[row][column];
+    for (bit = 0; bit < BYTE_LEN; bit++) {
+      if (x + column < _GRAMWIDTH && y + bit < _GRAMHEIGH) {
+        if (pixel >> bit & 1 == 1) {
+          LCD_drawPixel(x + column, y + bit, color1);
+        } else {
+          LCD_drawPixel(x + column, y + bit, color2);
+        }
+      }
+    }
+  }
+}
+
+void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned short color1, unsigned short color2) {
+  int index = 0;
+  while (msg[index] != '\0') {
+    LCD_drawChar(x + index * 5, msg[index], color1, color2);
+    index++;
+  }
 }
