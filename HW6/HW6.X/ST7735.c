@@ -222,12 +222,6 @@ void LCD_init() {
     LCD_data(MADCTL_MX | MADCTL_MY | MADCTL_RGB);
 }
 
-void LCD_drawPixel(unsigned short x, unsigned short y, unsigned short color) {
-  // check boundary
-  LCD_setAddr(x,y,x+1,y+1);
-  LCD_data16(color);
-}
-
 void LCD_setAddr(unsigned short x0, unsigned short y0, unsigned short x1, unsigned short y1) {
   LCD_command(ST7735_CASET); // Column
   LCD_data16(x0);
@@ -248,6 +242,12 @@ void LCD_clearScreen(unsigned short color) {
 	}
 }
 
+void LCD_drawPixel(unsigned short x, unsigned short y, unsigned short color) {
+  // check boundary
+  LCD_setAddr(x,y,x+1,y+1);
+  LCD_data16(color);
+}
+
 void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short color1, unsigned short color2) {
   int column, bit;        // count column number and bit number
   char row = ch - 0x20;   // since the space (first one) start at 0x20 in ascii table
@@ -256,9 +256,9 @@ void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short co
     for (bit = 0; bit < BYTE_LEN; bit++) {
       if (x + column < _GRAMWIDTH && y + bit < _GRAMHEIGH) {
         if (pixel >> bit & 1 == 1) {
-          LCD_drawPixel(x + column, y + bit, color1);
+          LCD_drawPixel(x + column, y + bit, color1);     // draw character color
         } else {
-          LCD_drawPixel(x + column, y + bit, color2);
+          LCD_drawPixel(x + column, y + bit, color2);     // draw background color
         }
       }
     }
@@ -270,5 +270,21 @@ void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned shor
   while (msg[index] != '\0') {
     LCD_drawChar(x + index * 5, msg[index], color1, color2);
     index++;
+  }
+}
+
+void LCD_drawBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2) {
+  int i, j;       // i - lenth, j - height
+  for (i = 0; i < length; i ++) {
+    for (j = 0; j < height; j++) {
+      LCD_drawPixel(x + i, y + j, color1);    // draw bar color
+    }
+  }
+  if (length < BAR_LEN) {
+    for (i = length; i < BAR_LEN; i++) {
+      for (j = length; j < height; j++) {
+        LCD_drawPixel(x + i, y + j, color2);  // draw background color
+      }
+    }
   }
 }
