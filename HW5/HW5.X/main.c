@@ -95,7 +95,7 @@ char getExpander() {
     i2c_master_send(SLAVE_ADDR << 1);   // OP+W: R/W = 0 write
     i2c_master_send(0x09);              // ADDR: GPIO
     i2c_master_restart();               // SR
-    i2c_master_send(SLAVE_ADDR << 1 | 1)// OP+R: R/W = 1 = read
+    i2c_master_send(SLAVE_ADDR << 1 | 1);// OP+R: R/W = 1 = read
     status = i2c_master_recv();
     i2c_master_ack(1);                  // no more bytes requested from SLAVE
     i2c_master_stop();                  // P: Stop
