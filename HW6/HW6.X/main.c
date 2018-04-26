@@ -1,5 +1,7 @@
 #include<xc.h>           // processor SFR definitions
 #include<sys/attribs.h>  // __ISR macro
+#include<stdio.h>
+#include "ST7335.h"
 
 // DEVCFG0
 #pragma config DEBUG = OFF // no debugging
@@ -36,6 +38,7 @@
 #pragma config FUSBIDIO = ON // USB pins controlled by USB module
 #pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
+#define MSG_LEN 100
 
 int main() {
 
@@ -62,23 +65,26 @@ int main() {
     // Turn off LED
     LATAbits.LATA4 = 0;
 
-    SPI1_init();
     LCD_init();
-
-
     __builtin_enable_interrupts();
+
+    char msg[MSG_LEN], fps[MSG_LEN];
+    int counter;
+    float FPS;
 
     while(1) {
 	     // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
        // remember the core timer runs at half the sysclk
-       _CP0_SET_COUNT(0);
+      for (counter = 0; counter < BAR_LEN; counter++) {
+        _CP0_SET_COUNT(0);
+        sprintf(msg, "Hello, World! %d  ", counter);
+        LCD_drawString(28, 32, msg, WHITE, BLACK);
+        LCD_drawBar(16, 50, 3, counter, GREEN);
+        FPS = 24000000 / _CP0_GET_COUNT();
+        sprintf(fps, "fps: %1.2f", FPS);
+        LCD_drawString(28, 80, fps, BLUE, BLACK);
+        while (_CP0_GET_COUNT() < 2400000) { ; }
 
-       while (_CP0_GET_COUNT() < 12000) { // to obtain 1kHz LED
-         while (!PORTBbits.RB4) {
-           LATAbits.LATA4 = 0; // pin RB4 is Pushbutton, if Pushbutton is pushed, LED goes to low
-         }
-       }
-       LATAINV = 0x10; // flip bits 0 and 1
-       //LATAbits.LATA4 = !LATAbits.LATA4;
+      }
     }
 }
