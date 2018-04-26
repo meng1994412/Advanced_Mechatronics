@@ -80,7 +80,9 @@ int main() {
         _CP0_SET_COUNT(0);
         sprintf(msg, "Hello, World! %d  ", counter);
         LCD_drawString(28, 32, msg, WHITE, BLACK);
-        LCD_drawBar(16, 50, 3, counter, GREEN);
+        sprintf(msg, "Sunny Stormborn  ");
+        LCD_drawString(28, 65, msg, YELLOW, BLACK);
+        LCD_drawBar(16, 50, 3, counter, GREEN, BLACK);
         FPS = 24000000 / _CP0_GET_COUNT();
         sprintf(fps, "fps: %1.2f", FPS);
         LCD_drawString(28, 80, fps, BLUE, BLACK);
