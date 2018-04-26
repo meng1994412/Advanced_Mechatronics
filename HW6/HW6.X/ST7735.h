@@ -158,6 +158,7 @@ static const char ASCII[96][5] = {
 #define CHAR_COL 5
 #define CHAR_ROW 96
 #define BYTE_LEN 8
+#define BAR_LEN 100
 
 // colors
 #define	BLACK     0x0000
