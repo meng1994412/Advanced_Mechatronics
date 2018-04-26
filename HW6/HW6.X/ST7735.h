@@ -155,6 +155,9 @@ static const char ASCII[96][5] = {
 #define _GRAMWIDTH 128
 #define _GRAMHEIGH 160 //128 //160
 #define _GRAMSIZE  _GRAMWIDTH * _GRAMHEIGH
+#define CHAR_COL 5
+#define CHAR_ROW 96
+#define BYTE_LEN 8
 
 // colors
 #define	BLACK     0x0000
