@@ -1,7 +1,7 @@
 #include<xc.h>           // processor SFR definitions
 #include<sys/attribs.h>  // __ISR macro
 #include<stdio.h>
-#include "ST7335.h"
+#include"ST7335.h"
 
 // DEVCFG0
 #pragma config DEBUG = OFF // no debugging
