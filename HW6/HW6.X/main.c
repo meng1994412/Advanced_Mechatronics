@@ -66,6 +66,7 @@ int main() {
     LATAbits.LATA4 = 0;
 
     LCD_init();
+    LCD_clearScreen(BLACK);
     __builtin_enable_interrupts();
 
     char msg[MSG_LEN], fps[MSG_LEN];

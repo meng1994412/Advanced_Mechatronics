@@ -268,7 +268,7 @@ void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short co
 void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned short color1, unsigned short color2) {
   int index = 0;
   while (msg[index] != '\0') {
-    LCD_drawChar(x + index * 5, msg[index], color1, color2);
+    LCD_drawChar(x + index * 5, y, msg[index], color1, color2);
     index++;
   }
 }
