@@ -42,6 +42,7 @@
 
 #define MSG_LEN 100
 
+
 int main() {
 
     __builtin_disable_interrupts();
@@ -73,27 +74,18 @@ int main() {
     LCD_clearScreen(BLACK);
     __builtin_enable_interrupts();
 
-    char msg[MSG_LEN];
+    unsigned char msg[MSG_LEN];
+    //char status = imu_test();
+    //char status = 10;
 
     while(1) {
 	     // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
        // remember the core timer runs at half the sysclk
-       char status = imu_test();
-       sprintf(msg, "status: %x", status);
-       LCD_drawString(28, 32, msg, WHITE, BLACK);
-       while (_CP0_GET_COUNT() < 2400000) { ; }
+       _CP0_SET_COUNT(0);
+       unsigned char status = imu_test();
+       sprintf(msg, "Test address: %x  ", status);
+       LCD_drawString(10, 65, msg, WHITE, BLACK);
+       while (_CP0_GET_COUNT()<2400000) { ; }
+
     }
-}
-
-
-char imu_test(void) {
-  // get the data from WHO_AM_I register
-  char status;
-  i2c_master_start();                   // start
-  i2c_master_send(IMU_ADDR << 1 | 1);   // OP + W: R/W = 1 read
-  i2c_master_send(0x0F);                // ADDR: WHO_AM_I register for imu
-  status = i2c_master_recv();                // CTRL1_XL register: defalut [0 1 1 0 1 0 0 1]
-  i2c_master_ack(1);
-  i2c_master_stop();
-  return status;
 }
