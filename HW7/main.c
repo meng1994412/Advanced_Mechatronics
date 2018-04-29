@@ -67,18 +67,33 @@ int main() {
     // Turn off LED
     LATAbits.LATA4 = 0;
 
+    // Initialize all the peripherals
+    imc_init();
     LCD_init();
     LCD_clearScreen(BLACK);
     __builtin_enable_interrupts();
 
-    char msg[MSG_LEN], fps[MSG_LEN];
-    int counter;
-    float FPS;
+    char msg[MSG_LEN];
 
     while(1) {
 	     // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
        // remember the core timer runs at half the sysclk
-
-      }
+       char status = imu_test();
+       sprintf(msg, "status: %x", status);
+       LCD_drawString(28, 32, msg, WHITE, BLACK);
+       while (_CP0_GET_COUNT() < 2400000) { ; }
     }
+}
+
+
+char imu_test(void) {
+  // get the data from WHO_AM_I register
+  char status;
+  i2c_master_start();                   // start
+  i2c_master_send(IMU_ADDR << 1 | 1);   // OP + W: R/W = 1 read
+  i2c_master_send(0x0F);                // ADDR: WHO_AM_I register for imu
+  status = i2c_master_recv();                // CTRL1_XL register: defalut [0 1 1 0 1 0 0 1]
+  i2c_master_ack(1);
+  i2c_master_stop();
+  return status;
 }
