@@ -4,5 +4,7 @@
 #define IMU_ADDR 0b1101011
 
 void imc_init(void);
+unsigned char imu_test(void); 
+void I2C_read_multiple(unsigned char address, unsigned char register, unsigned char *data, int length);
 
 #endif
