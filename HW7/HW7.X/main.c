@@ -86,8 +86,8 @@ int main() {
        sprintf(test_msg, "Test address: %x  ", status);
        LCD_drawString(1, 1, test_msg, WHITE, BLACK);
 
-       LCD_drawBar(5, 50, 3, 123, WHITE, BLACK);
-       LCD_drawBar(50, 5, 158, 3, WHITE, BLACK);
+       LCD_drawStaticBar(10, 70, 3, 100, WHITE);
+       LCD_drawStaticBar(60, 10, 130, 3, WHITE);
        while (_CP0_GET_COUNT()<1200000) { ; }
 
     }
