@@ -288,3 +288,12 @@ void LCD_drawBar(unsigned short x, unsigned short y, unsigned short height, unsi
     }
   }
 }
+
+void LCD_drawStaticBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1) {
+  int i, j;       // i - lenth, j - height
+  for (i = 0; i < length; i ++) {
+    for (j = 0; j < height; j++) {
+      LCD_drawPixel(x + i, y + j, color1);    // draw bar color
+    }
+  }
+}
