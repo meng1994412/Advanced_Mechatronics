@@ -74,7 +74,7 @@ int main() {
     LCD_clearScreen(BLACK);
     __builtin_enable_interrupts();
 
-    unsigned char msg[MSG_LEN];
+    unsigned char test_msg[MSG_LEN];
     //char status = imu_test();
     //char status = 10;
 
@@ -83,9 +83,12 @@ int main() {
        // remember the core timer runs at half the sysclk
        _CP0_SET_COUNT(0);
        unsigned char status = imu_test();
-       sprintf(msg, "Test address: %x  ", status);
-       LCD_drawString(10, 65, msg, WHITE, BLACK);
-       while (_CP0_GET_COUNT()<2400000) { ; }
+       sprintf(test_msg, "Test address: %x  ", status);
+       LCD_drawString(1, 1, test_msg, WHITE, BLACK);
+
+       LCD_drawBar(5, 50, 3, 123, WHITE, BLACK);
+       LCD_drawBar(50, 5, 158, 3, WHITE, BLACK);
+       while (_CP0_GET_COUNT()<1200000) { ; }
 
     }
 }
