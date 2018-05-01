@@ -297,3 +297,67 @@ void LCD_drawStaticBar(unsigned short x, unsigned short y, unsigned short height
     }
   }
 }
+
+void LCD_drawDynamicBarX(unsigned short x, unsigned short y, unsigned short height, float xAcc, unsigned color1, unsigned color2) {
+  int i, j;
+  int length = (int) (abs(xAcc * CRO_LEN));
+  if (xAcc > 0 ) {
+    for (i = 0; i < length; i++) {
+      for (j = 0; j < height; j++) {
+        LCD_drawPixel(x + i, y + j, color1);    // draw bar color
+      }
+    }
+    if (length < CRO_LEN) {
+      for (i = length; i < CRO_LEN; i++) {
+        for (j = length; j < height; j++) {
+          LCD_drawPixel(x + i, y + j, color2);  // draw background color
+        }
+      }
+    }
+  } else {
+    for (i = 0; i < length; i ++) {
+      for (j = 0; j < height; j++) {
+        LCD_drawPixel(x - i, y + j, color1);    // draw bar color
+      }
+    }
+    if (length < CRO_LEN) {
+      for (i = length; i < CRO_LEN; i++) {
+        for (j = length; j < height; j++) {
+          LCD_drawPixel(x - i, y + j, color2);  // draw background color
+        }
+      }
+    }
+  }
+}
+
+void LCD_drawDynamicBarY(unsigned short x, unsigned short y, float yAcc, unsigned short length, unsigned color1, unsigned color2) {
+  int i, j;
+  int height = (int) (abs(yAcc * CRO_LEN));
+  if (yAcc > 0 ) {
+    for (i = 0; i < length; i++) {
+      for (j = 0; j < height; j++) {
+        LCD_drawPixel(x + i, y + j, color1);    // draw bar color
+      }
+    }
+    if (height < CRO_LEN) {
+      for (i = height; i < length; i++) {
+        for (j = height; j < CRO_LEN; j++) {
+          LCD_drawPixel(x + i, y + j, color2);  // draw background color
+        }
+      }
+    }
+  } else {
+    for (i = 0; i < length; i ++) {
+      for (j = 0; j < height; j++) {
+        LCD_drawPixel(x + i, y - j, color1);    // draw bar color
+      }
+    }
+    if (length < CRO_LEN) {
+      for (i = height; i < length; i++) {
+        for (j = height; j < CRO_LEN; j++) {
+          LCD_drawPixel(x + i, y - j, color2);  // draw background color
+        }
+      }
+    }
+  }
+}

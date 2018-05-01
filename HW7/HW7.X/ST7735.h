@@ -159,6 +159,7 @@ static const char ASCII[96][5] = {
 #define CHAR_ROW 96
 #define BYTE_LEN 8
 #define BAR_LEN 100
+#define CRO_LEN 45
 
 // colors
 #define	BLACK     0x0000
@@ -182,6 +183,8 @@ void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short co
 void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned short color1, unsigned short color2); // draw the string
 void LCD_drawDynamicBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2); // draw dynamic bar
 void LCD_drawStaticBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1); // draw static bar
+void LCD_drawDynamicBarX(unsigned short x, unsigned short y, unsigned short height, float xAcc, unsigned color1, unsigned color2);
+void LCD_drawDynamicBarY(unsigned short x, unsigned short y, float yAcc, unsigned short length, unsigned color1, unsigned color2);
 
 
 

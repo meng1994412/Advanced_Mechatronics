@@ -103,8 +103,12 @@ int main() {
        LCD_drawString(1, 20, msg, WHITE, BLACK);
 
        // draw static bar
-       LCD_drawStaticBar(10, 80, 3, 110, BLUE);
-       LCD_drawStaticBar(60, 30, 110, 3, BLUE);
+       LCD_drawStaticBar(10, 80, 3, 108, BLUE);
+       LCD_drawStaticBar(64, 30, 110, 3, BLUE);
+
+       // draw dynamic bar
+       LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
+       LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
 
 
        while (_CP0_GET_COUNT()<1200000) { ; }
