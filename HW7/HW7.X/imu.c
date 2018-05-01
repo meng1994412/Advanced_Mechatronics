@@ -35,18 +35,42 @@ unsigned char imu_test(void) {
   // get the data from WHO_AM_I register
   unsigned char whoami;
   i2c_master_start();                   // start
-  i2c_master_send(IMU_ADDR << 1);   // OP + W: R/W = 1 write
+  i2c_master_send(IMU_ADDR << 1);       // OP + W: R/W = 0 write
   i2c_master_send(0x0F);                // ADDR: WHO_AM_I register for imu
 
   i2c_master_restart();                 // restart
   i2c_master_send(IMU_ADDR << 1 | 1);   // OP + W: R/W = 1 read
-  whoami = i2c_master_recv();           // CTRL1_XL register: defalut [0 1 1 0 1 0 0 1]
+  whoami = i2c_master_recv();           // receive the data from the ADDR
   i2c_master_ack(1);
   i2c_master_stop();
   return whoami;
 }
 
+void I2C_read_multiple(unsigned char address, unsigned char regist, unsigned char *data, int length) {
+  int i;
+  i2c_master_start();                   // star
+  i2c_master_send(IMU_ADDR << 1);       // OP + W: R/W = 0 write
+  i2c_master_send(0x20);                // ADDR: starting at OUT_TEMP_L
 
-void I2C_read_multiple(unsigned char address, unsigned char register, unsigned char *data, int length) {
-  
+  i2c_master_restart();                 // restart
+  i2c_master_send(IMU_ADDR << 1 | 1);   // OP + W: R/W = 1 read
+  for (i = 0; i < length; i++) {
+    data[i] = i2c_master_recv();        // receive the data from corresponding ADDR
+    if (i != length - 1) {
+      i2c_master_ack(0);
+    }
+  }
+  i2c_master_ack(1);
+  i2c_master_stop();
+}
+
+float getXAcc(unsigned char *data) {
+  signed short xAcc = (data[9] << 8) | data[8];
+  return (xAcc / 32767.0 * 2.0);
+  //return xAcc;
+}
+
+float getYAcc(unsigned char *data) {
+  signed short yAcc = (data[11] << 8) | data[10];
+  return yAcc / 32767.0 * 2.0;
 }

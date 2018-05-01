@@ -41,6 +41,7 @@
 #pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
 #define MSG_LEN 100
+#define DATA_LEN 14
 
 
 int main() {
@@ -75,6 +76,10 @@ int main() {
     __builtin_enable_interrupts();
 
     unsigned char test_msg[MSG_LEN];
+    unsigned char data[DATA_LEN] = {};
+    unsigned char msg[MSG_LEN];
+    float xAcc;
+    float yAcc;
     //char status = imu_test();
     //char status = 10;
 
@@ -82,13 +87,28 @@ int main() {
 	     // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
        // remember the core timer runs at half the sysclk
        _CP0_SET_COUNT(0);
+       // who am i test
        unsigned char status = imu_test();
-       sprintf(test_msg, "Test address: %x  ", status);
+       sprintf(test_msg, "Test address = %d  ", status);
        LCD_drawString(1, 1, test_msg, WHITE, BLACK);
 
-       LCD_drawStaticBar(10, 70, 3, 100, WHITE);
-       LCD_drawStaticBar(60, 10, 130, 3, WHITE);
+       // get the x & y acceleration data
+       I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
+       xAcc = getXAcc(data);
+       yAcc = getYAcc(data);
+
+       sprintf(msg, "xAcc = %1.3f  ", xAcc);
+       LCD_drawString(1, 10, msg, WHITE, BLACK);
+       sprintf(msg, "yAcc = %1.3f  ", yAcc);
+       LCD_drawString(1, 20, msg, WHITE, BLACK);
+
+       // draw static bar
+       LCD_drawStaticBar(10, 80, 3, 110, BLUE);
+       LCD_drawStaticBar(60, 30, 110, 3, BLUE);
+
+
        while (_CP0_GET_COUNT()<1200000) { ; }
+       LATAbits.LATA4 =! LATAbits.LATA4;
 
     }
 }
