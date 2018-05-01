@@ -180,7 +180,7 @@ void LCD_setAddr(unsigned short, unsigned short, unsigned short, unsigned short)
 void LCD_clearScreen(unsigned short); // set the color of every pixel
 void LCD_drawChar(unsigned short x, unsigned short y, char ch, unsigned short color1, unsigned short color2); // draw the characters
 void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned short color1, unsigned short color2); // draw the string
-void LCD_drawBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2); // draw dynamic bar
+void LCD_drawDynamicBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2); // draw dynamic bar
 void LCD_drawStaticBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1); // draw static bar
 
 

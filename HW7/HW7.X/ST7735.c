@@ -273,7 +273,7 @@ void LCD_drawString(unsigned short x, unsigned short y, char *msg, unsigned shor
   }
 }
 
-void LCD_drawBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2) {
+void LCD_drawDynamicBar(unsigned short x, unsigned short y, unsigned short height, unsigned short length, unsigned color1, unsigned color2) {
   int i, j;       // i - lenth, j - height
   for (i = 0; i < length; i ++) {
     for (j = 0; j < height; j++) {
