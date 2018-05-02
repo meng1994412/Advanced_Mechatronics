@@ -33,4 +33,4 @@ Here is the circuit board:
 
 Here is the PIC32 and schematic:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW2/picture%20of%20schematic.PNG" width="400">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW2/picture%20of%20schematic.PNG" width="600">
