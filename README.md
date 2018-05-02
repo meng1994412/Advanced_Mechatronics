@@ -1,4 +1,4 @@
-# ME433 Advanced Mechatronics in Mechatronics Systems Prototyping
+# Advanced Mechatronics in Mechatronics Systems Prototyping
 ## Project Obejctives
 * Design, solder, and debug a printed circuit board (PCB).
 * Implement advanced digital communication protocals like SPI, I2C, USB, CAN.
