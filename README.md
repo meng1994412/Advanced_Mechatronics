@@ -46,7 +46,7 @@ Here is the PCB:
 * Build the MCP4912 DAC circuit and write a library to communicate with it. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW4))
 * Build the MCP23008 I/O expander circuit and write a library to communicate with it. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW5))
 
-Here is i2c circuit board:
+Here is I2C circuit board:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/CircuitDiagram.JPG" width="400">
 
@@ -54,3 +54,7 @@ Here is i2c circuit board:
 * Build communication between PIC32MX250F128B and TFT LCD via SPI. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW6/HW6.X))
 * Solder IMU breakout board onto heahders pins. ([Picture](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/CircuiteDiagram.JPG))
 * Build communication between PIC32MX250F128B and IMU via I2C. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW7))
+
+Here is circuit board with LCD, IMU communication with PIC32MX250F128B:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/CircuiteDiagram.JPG" width="400">
