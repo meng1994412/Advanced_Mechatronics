@@ -25,12 +25,21 @@
 ## Weekly Milstones
 ### Week 1
 * Build and program a PIC32MX250F128B circuit board.
-* Design a PIC32MX250F128B library and schematic on EAGLE.
 
 Here is the circuit board:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/6_Breadboard.JPG" width="400">
 
-Here is the PIC32 and schematic:
+### Week 2
+* Design a PIC32MX250F128B library and schematic on EAGLE.
+* Build a PIC32MX250F128B PCB on EAGLE.
+
+Here is the schematic:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW2/picture%20of%20schematic.PNG" width="800">
+
+Here is the PCB:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW3/picture%20of%20board.PNG" width="500">
+
+### Week 3
