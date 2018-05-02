@@ -43,3 +43,9 @@ Here is the PCB:
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW3/picture%20of%20board.PNG" width="500">
 
 ### Week 3
+* Build the MCP4912 DAC circuit and write a library to communicate with it. 
+* Build the MCP23008 I/O expander circuit and write a library to communicate with it.
+
+Here is i2c circuit board:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/CircuitDiagram.JPG" width="400">
