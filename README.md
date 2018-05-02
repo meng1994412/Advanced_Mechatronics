@@ -22,3 +22,15 @@
 * [TFT LCD](https://www.aliexpress.com/item/Free-Shipping-1-8-inch-TFT-touch-LCD-Module-LCD-Screen-Module-SPI-serial-51-drivers/32263827143.html)
 * [IMU(LSM6DS33)](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/LSM6DS33DataSheet.pdf)
 
+## Weekly Milstones
+### Week 1
+* Build and program a PIC32MX250F128B circuit board.
+* Design a PIC32MX250F128B library and schematic on EAGLE.
+
+Here is the circuit board:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/6_Breadboard.JPG" width="400">
+
+Here is the PIC32 and schematic:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW2/picture%20of%20schematic.PNG" width="400">
