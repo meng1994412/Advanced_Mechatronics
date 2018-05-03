@@ -20,7 +20,7 @@
 * [Microchip(MCP4902)](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/MCP4912DataSheet.pdf)
 * [Microchip(MCP23008)](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/i2cDataSheet.pdf)
 * [TFT LCD](https://www.aliexpress.com/item/Free-Shipping-1-8-inch-TFT-touch-LCD-Module-LCD-Screen-Module-SPI-serial-51-drivers/32263827143.html)
-* [IMU(LSM6DS33)](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/LSM6DS33DataSheet.pdf)
+* [IMU(LSM6DS33)](https://www.pololu.com/product/2736)
 
 ## Weekly Milstones
 ### Week 1
