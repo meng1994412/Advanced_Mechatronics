@@ -7,6 +7,10 @@
 #include "app.h"
 #include <stdio.h>
 #include <xc.h>
+#include <sys/attribs.h>  // __ISR macro
+#include "ST7735.h"
+#include "i2c_master_noint.h"
+#include "imc.h"
 
 // *****************************************************************************
 // *****************************************************************************
