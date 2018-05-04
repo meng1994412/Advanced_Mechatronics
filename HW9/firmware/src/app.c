@@ -399,8 +399,8 @@ void APP_Tasks(void) {
               unsigned char test_msg[MSG_LEN];
               unsigned char data[DATA_LEN] = {};
               unsigned char msg[MSG_LEN];
-              float xAcc;
-              float yAcc;
+              float xAcc, yAcc, zAcc, xGyro, yGyro, zGyro;
+
 
               // who am i test
               unsigned char status = imu_test();
