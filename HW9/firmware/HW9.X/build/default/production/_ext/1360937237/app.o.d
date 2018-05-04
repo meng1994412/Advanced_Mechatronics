@@ -192,4 +192,7 @@ build/default/production/_ext/1360937237/app.o:  \
  ../../../../framework/usb/usb_device_cdc.h  \
  ../../../../framework/usb/src/usb_device_function_driver.h  \
  ../../../../framework/usb/usb_cdc.h  \
-../src/app.h 
+../src/app.h  \
+../src/ST7735.h  \
+ ../src/i2c_master_noint.h  \
+../src/imc.h 
