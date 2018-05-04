@@ -20,6 +20,8 @@ int len, i = 0;
 int startTime = 0; // to remember the loop time
 
 APP_DATA appData;
+#define MSG_LEN 100
+#define DATA_LEN 14
 
 /*******************************************************
  * USB CDC Device Events - Application Event Handler
@@ -254,7 +256,39 @@ void APP_Initialize(void) {
     /* Set up the read buffer */
     appData.readBuffer = &readBuffer[0];
 
-    /* PUT YOUR LCD, IMU, AND PIN INITIALIZATIONS HERE */
+    /* LCD, IMU, AND PIN INITIALIZATIONS STARTS HERE */
+
+    // Place the App state machine in its initial state.
+    appData.state = APP_STATE_INIT;
+
+    __builtin_disable_interrupts();
+
+    // set the CP0 CONFIG register to indicate that kseg0 is cacheable (0x3)
+    __builtin_mtc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 0xa4210583);
+
+    // 0 data RAM access wait states
+    BMXCONbits.BMXWSDRM = 0x0;
+
+    // enable multi vector interrupts
+    INTCONbits.MVEC = 0x1;
+
+    // disable JTAG to get pins back
+    DDPCONbits.JTAGEN = 0;
+
+    // LED pin as output
+    TRISAbits.TRISA4 = 0;
+
+    // Pushbutton pin as input
+    TRISBbits.TRISB4 = 1;
+
+    // Turn off LED
+    LATAbits.LATA4 = 0;
+
+    // Initialize all the peripherals
+    imc_init();
+    LCD_init();
+    LCD_clearScreen(BLACK);
+    __builtin_enable_interrupts();
 
     startTime = _CP0_GET_COUNT();
 }
@@ -355,9 +389,66 @@ void APP_Tasks(void) {
 
             /* PUT THE TEXT YOU WANT TO SEND TO THE COMPUTER IN dataOut
             AND REMEMBER THE NUMBER OF CHARACTERS IN len */
-            /* THIS IS WHERE YOU CAN READ YOUR IMU, PRINT TO THE LCD, ETC */
-            len = sprintf(dataOut, "%d\r\n", i);
-            i++; // increment the index so we see a change in the text
+            if (appData.readBuffer[0] == 0x72)
+            {
+              // define some parameters and arrays
+              unsigned char test_msg[MSG_LEN];
+              unsigned char data[DATA_LEN] = {};
+              unsigned char msg[MSG_LEN];
+              float xAcc;
+              float yAcc;
+
+              // who am i test
+              unsigned char status = imu_test();
+              sprintf(test_msg, "Test address = %d  ", status);
+              LCD_drawString(1, 1, test_msg, WHITE, BLACK);
+
+              // get the x & y acceleration data
+              I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
+              xAcc = getXAcc(data);
+              yAcc = getYAcc(data);
+              zAcc = getZAcc(data);
+              xGyro = getXGyro(data);
+              yGyro = getYGyro(data);
+              zGyro = getZGyro(data);
+
+              sprintf(msg, "xAcc = %1.3f  ", xAcc);
+              LCD_drawString(1, 10, msg, WHITE, BLACK);
+              sprintf(msg, "yAcc = %1.3f  ", yAcc);
+              LCD_drawString(1, 20, msg, WHITE, BLACK);
+
+              // draw static bar
+              LCD_drawStaticBar(10, 80, 3, 108, BLUE);
+              LCD_drawStaticBar(64, 30, 110, 3, BLUE);
+
+              // draw dynamic bar
+              LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
+              LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
+
+              // LED blink
+              LATAbits.LATA4 =! LATAbits.LATA4;
+
+              /* READ IMU, PRINT TO THE PuTTy */
+              len = sprintf(dataOut, "%d  %1.3f  %1.3f  %1.3f %2.2f %2.2f %2.2f\r\n", i + 1, xAcc, yAcc, zAcc, xGyro, yGyro, zGyro);
+
+              if (i == 100)
+              {
+                i = 0;
+                appData.readBuffer[0] = 0x00;
+                len = sprintf(dataOut, "\n*********** wait for request ***********\r\n");
+              }
+              else
+              {
+                i++; // increment the index so we see a change in the text
+              }
+
+            }
+            else
+            {
+              len = 1;
+              dataOut[0] = 0;
+            }
+
             /* IF A LETTER WAS RECEIVED, ECHO IT BACK SO THE USER CAN SEE IT */
             if (appData.isReadComplete) {
                 USB_DEVICE_CDC_Write(USB_DEVICE_CDC_INDEX_0,
