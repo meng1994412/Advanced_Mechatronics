@@ -391,51 +391,51 @@ void APP_Tasks(void) {
             appData.isWriteComplete = false;
             appData.state = APP_STATE_WAIT_FOR_WRITE_COMPLETE;
 
-            /* PUT THE TEXT YOU WANT TO SEND TO THE COMPUTER IN dataOut
+            /*SEND TEXT TO THE COMPUTER IN dataOut
             AND REMEMBER THE NUMBER OF CHARACTERS IN len */
+
+            // define some parameters and arrays
+            unsigned char test_msg[MSG_LEN];
+            unsigned char data[DATA_LEN] = {};
+            unsigned char msg[MSG_LEN];
+            float xAcc, yAcc, zAcc, xGyro, yGyro, zGyro;
+
+            // who am i test
+            unsigned char status = imu_test();
+            sprintf(test_msg, "Test address = %d  ", status);
+            LCD_drawString(1, 1, test_msg, WHITE, BLACK);
+
+            // get the x & y acceleration data
+            I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
+            xAcc = getXAcc(data);
+            yAcc = getYAcc(data);
+            zAcc = getZAcc(data);
+            xGyro = getXGyro(data);
+            yGyro = getYGyro(data);
+            zGyro = getZGyro(data);
+
+            sprintf(msg, "xAcc = %1.3f  ", xAcc);
+            LCD_drawString(1, 10, msg, WHITE, BLACK);
+            sprintf(msg, "yAcc = %1.3f  ", yAcc);
+            LCD_drawString(1, 20, msg, WHITE, BLACK);
+
+            // draw static bar
+            LCD_drawStaticBar(10, 80, 3, 108, BLUE);
+            LCD_drawStaticBar(64, 30, 110, 3, BLUE);
+
+            // draw dynamic bar
+            LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
+            LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
+            
+            // LED blink
+            LATAbits.LATA4 =! LATAbits.LATA4;
+
             if (appData.readBuffer[0] == 0x72)
             {
-              // define some parameters and arrays
-              unsigned char test_msg[MSG_LEN];
-              unsigned char data[DATA_LEN] = {};
-              unsigned char msg[MSG_LEN];
-              float xAcc, yAcc, zAcc, xGyro, yGyro, zGyro;
-
-
-              // who am i test
-              unsigned char status = imu_test();
-              sprintf(test_msg, "Test address = %d  ", status);
-              LCD_drawString(1, 1, test_msg, WHITE, BLACK);
-
-              // get the x & y acceleration data
-              I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
-              xAcc = getXAcc(data);
-              yAcc = getYAcc(data);
-              zAcc = getZAcc(data);
-              xGyro = getXGyro(data);
-              yGyro = getYGyro(data);
-              zGyro = getZGyro(data);
-
-              sprintf(msg, "xAcc = %1.3f  ", xAcc);
-              LCD_drawString(1, 10, msg, WHITE, BLACK);
-              sprintf(msg, "yAcc = %1.3f  ", yAcc);
-              LCD_drawString(1, 20, msg, WHITE, BLACK);
-
-              // draw static bar
-              LCD_drawStaticBar(10, 80, 3, 108, BLUE);
-              LCD_drawStaticBar(64, 30, 110, 3, BLUE);
-
-              // draw dynamic bar
-              LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
-              LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
-
-              // LED blink
-              LATAbits.LATA4 =! LATAbits.LATA4;
-
               /* READ IMU, PRINT TO THE PuTTy */
-              len = sprintf(dataOut, "%d  %1.3f  %1.3f  %1.3f %2.2f %2.2f %2.2f\r\n", i + 1, xAcc, yAcc, zAcc, xGyro, yGyro, zGyro);
+              len = sprintf(dataOut, "%3d  %1.3f  %1.3f  %1.3f %2.2f %2.2f %2.2f\r\n", i, xAcc, yAcc, zAcc, xGyro, yGyro, zGyro);
 
-              if (i == 100)
+              if (i > 100)
               {
                 i = 0;
                 appData.readBuffer[0] = 0x00;
