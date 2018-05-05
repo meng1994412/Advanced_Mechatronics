@@ -60,4 +60,4 @@ Here is circuit board with LCD, IMU communication with PIC32MX250F128B:
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/CircuiteDiagram.JPG" width="400">
 
 ### Week 5
-
+* Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8/firmware))
