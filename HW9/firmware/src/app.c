@@ -371,7 +371,7 @@ void APP_Tasks(void) {
              * The isReadComplete flag gets updated in the CDC event handler. */
 
              /* WAIT FOR 5HZ TO PASS OR UNTIL A LETTER IS RECEIVED */
-            if (appData.isReadComplete || _CP0_GET_COUNT() - startTime > (48000000 / 2 / 5)) {
+            if (appData.isReadComplete || _CP0_GET_COUNT() - startTime > (48000000 / 2 / 100)) {
                 appData.state = APP_STATE_SCHEDULE_WRITE;
             }
 
@@ -426,7 +426,7 @@ void APP_Tasks(void) {
             // draw dynamic bar
             LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
             LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
-            
+
             // LED blink
             LATAbits.LATA4 =! LATAbits.LATA4;
 
