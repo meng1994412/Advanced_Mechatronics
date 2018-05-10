@@ -15,5 +15,4 @@
 
 ### Results:
 Here is the plot of raw data, MAF data, IIR data, and FIR data:
-
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot.png" width="400">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot.png" width="500">
