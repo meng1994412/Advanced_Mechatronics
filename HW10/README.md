@@ -20,3 +20,13 @@ Here is the plot of raw data, MAF data, IIR data, and FIR data:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot2.png" width="500">
 
+5-sample is used in MAF. 
+4th-order, 5-sample is used in FIR filter, where the weights are [0.0, 0.2037, 0.5926, 0.2037, 0.0].
+coefficients a = 0.2 and b = 0.8 (0.2 * previous_data + 0.8 * new_data) are used in IIR filter.
+
+From the plots:
+MAF is better for reducing the noises. The signial get more smooth but also more delayed.
+IIR is better for tracking the raw data.
+
+From computation complexity perspectives:
+IIR if better since it has only O(1) computation complexity, comparing to MAF and FIR which both have O(n).
