@@ -11,6 +11,7 @@
   - `imc.h` & `imu.c`: IMU communication with PIC via I2C.
   - `i2c_master_noint.h` & `i2c_master_noint.c`: setup I2C communication
   - `app.h` & `app.c`: USB communication with PC, which sends both the raw data and filtered data to PC.
+  - `main.c`: main function controls the `app.c`.
   - `read_serial.py`: Read the data via USB Port and plot the data, including raw data, MAF data, IIR data, and FIR data.
 
 ### Results:
