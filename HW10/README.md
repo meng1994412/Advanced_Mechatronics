@@ -1,7 +1,7 @@
 ## HW10: Digital Signal Processing
 ### Objectives:
 * Create 3 digital filters including moving average filter (MAF), finite impulse response filter (FIR), and infinite reponse filter (IIR) to smooth out the high frequency noisy data on z acceleration.
-* Plot raw data and filtered data. ([Plot](# results)
+* Plot raw data and filtered data. ([Plot](#results))
 * Compare the filters to find out the best filter, in terms of how much the noise is reduced vs how many computations are required.
 
 ### Approaches:
