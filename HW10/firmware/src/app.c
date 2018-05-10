@@ -431,8 +431,8 @@ void APP_Tasks(void) {
 
             // get the x & y acceleration data
             I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
-            // xAcc = getXAcc(data);
-            // yAcc = getYAcc(data);
+            xAcc = getXAcc(data);
+            yAcc = getYAcc(data);
             zAcc = getZAcc(data);
             // xGyro = getXGyro(data);
             // yGyro = getYGyro(data);
@@ -474,19 +474,6 @@ void APP_Tasks(void) {
                 MAF = MAF_ARRAY[MAF_NUM];
               }
               MAF_NUM++;
-              /*
-              int k;
-              MAF_ARRAY[MAF_NUM % MAF_LEN] = zAcc;
-              if (MAF_NUM > MAF_LEN - 1)
-              {
-                for (k = 0; k < MAF_LEN; k++)
-                {
-                  MAF_SUM = MAF_SUM + MAF_ARRAY[k];
-                }
-                MAF =
-              }
-              */
-
 
               // IIR
               IIR_NEW = IIR_a * IIR_PREV + IIR_b * zAcc;
@@ -516,7 +503,7 @@ void APP_Tasks(void) {
 
               /* READ IMU, PRINT TO THE PuTTy */
               // len = sprintf(dataOut, "%3d  %1.3f  %1.3f  %1.3f %2.2f %2.2f %2.2f\r\n", i, xAcc, yAcc, zAcc, xGyro, yGyro, zGyro);
-              len = sprintf(dataOut, "%3d  %1.3f  %1.3f  %1.3f\r\n", i, MAF, IIR_NEW, FIR);
+              len = sprintf(dataOut, "%3d, %1.3f, %1.3f, %1.3f, %1.3f\r\n", i, zAcc, MAF, IIR_NEW, FIR);
 
               MAF_SUM = 0;  // reset sum value of the MAF array
               FIR = 0;      // reset FIR value
