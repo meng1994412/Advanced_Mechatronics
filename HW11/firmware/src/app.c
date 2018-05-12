@@ -8,6 +8,8 @@
 
 
 APP_DATA appData;
+#define MSG_LEN 100
+#define DATA_LEN 14
 
 /* Mouse Report */
 MOUSE_REPORT mouseReport APP_MAKE_BUFFER_DMA_READY;
@@ -172,6 +174,37 @@ void APP_Initialize(void) {
     //appData.emulateMouse = true;
     appData.hidInstance = 0;
     appData.isMouseReportSendBusy = false;
+
+    __builtin_disable_interrupts();
+
+    // set the CP0 CONFIG register to indicate that kseg0 is cacheable (0x3)
+    __builtin_mtc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 0xa4210583);
+
+    // 0 data RAM access wait states
+    BMXCONbits.BMXWSDRM = 0x0;
+
+    // enable multi vector interrupts
+    INTCONbits.MVEC = 0x1;
+
+    // disable JTAG to get pins back
+    DDPCONbits.JTAGEN = 0;
+
+    // LED pin as output
+    TRISAbits.TRISA4 = 0;
+
+    // Pushbutton pin as input
+    TRISBbits.TRISB4 = 1;
+
+    // Turn off LED
+    LATAbits.LATA4 = 0;
+
+    // Initialize all the peripheralsu
+    imu_init();
+    LCD_init();
+    LCD_clearScreen(BLACK);
+    __builtin_enable_interrupts();
+
+    //startTime = _CP0_GET_COUNT();
 }
 
 /******************************************************************************
@@ -182,13 +215,12 @@ void APP_Initialize(void) {
  */
 
 void APP_Tasks(void) {
-    static int8_t vector = 0;
-    static uint8_t movement_length = 0;
-    int8_t dir_table[] = {-4, -4, -4, 0, 4, 4, 4, 0};
+
+    static uint8_t inc = 0;
 
     /* Check the application's current state. */
     switch (appData.state) {
-            /* Application's initial state. */
+        /* Application's initial state. */
         case APP_STATE_INIT:
         {
             /* Open the device layer */
@@ -220,15 +252,58 @@ void APP_Tasks(void) {
             break;
 
         case APP_STATE_MOUSE_EMULATE:
+        
+            appData.mouseButton[0] = MOUSE_BUTTON_STATE_RELEASED;
+            appData.mouseButton[1] = MOUSE_BUTTON_STATE_RELEASED;
 
-            // every 50th loop, or 20 times per second
-            if (movement_length > 50) {
-                appData.mouseButton[0] = MOUSE_BUTTON_STATE_RELEASED;
-                appData.mouseButton[1] = MOUSE_BUTTON_STATE_RELEASED;
-                appData.xCoordinate = (int8_t) dir_table[vector & 0x07];
-                appData.yCoordinate = (int8_t) dir_table[(vector + 2) & 0x07];
-                vector++;
-                movement_length = 0;
+            // define some parameters and arrays
+            unsigned char test_msg[MSG_LEN];
+            unsigned char data[DATA_LEN] = {};
+            unsigned char msg[MSG_LEN];
+            float xAcc, yAcc, zAcc; // xGyro, yGyro, zGyro;
+
+            // who am i test
+            unsigned char status = imu_test();
+            sprintf(test_msg, "Test address = %d  ", status);
+            LCD_drawString(1, 1, test_msg, WHITE, BLACK);
+
+            // get the x & y acceleration data
+            I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
+            xAcc = getXAcc(data);
+            yAcc = getYAcc(data);
+            zAcc = getZAcc(data);
+            // xGyro = getXGyro(data);
+            // yGyro = getYGyro(data);
+            // zGyro = getZGyro(data);
+
+            sprintf(msg, "xAcc = %1.3f  ", xAcc);
+            LCD_drawString(1, 10, msg, WHITE, BLACK);
+            sprintf(msg, "yAcc = %1.3f  ", yAcc);
+            LCD_drawString(1, 20, msg, WHITE, BLACK);
+
+            // draw static bar
+            LCD_drawStaticBar(10, 80, 3, 108, BLUE);
+            LCD_drawStaticBar(64, 30, 110, 3, BLUE);
+
+            // draw dynamic bar
+            LCD_drawDynamicBarX(64, 80, 3, xAcc, WHITE, BLUE);
+            LCD_drawDynamicBarY(64, 80, yAcc, 3, WHITE, BLUE);
+
+            // LED blink
+            LATAbits.LATA4 =! LATAbits.LATA4;
+
+            // every 10th loop
+            if (inc == 10)
+            {
+              appData.xCoordinate = (int8_t) xAcc;
+              appData.yCoordinate = (int8_t) yAcc;
+              inc = 0;
+            }
+            else
+            {
+              appData.xCoordinate = (int8_t) 0;
+              appData.yCoordinate = (int8_t) 0;
+              inc++;
             }
 
             if (!appData.isMouseReportSendBusy) {
@@ -268,7 +343,6 @@ void APP_Tasks(void) {
                             }
                         }
                     }
-
                 }
                 if (appData.isMouseReportSendBusy == true) {
                     /* Copy the report sent to previous */
@@ -281,7 +355,7 @@ void APP_Tasks(void) {
                             sizeof (MOUSE_REPORT));
                     appData.setIdleTimer = 0;
                 }
-                movement_length++;
+                // movement_length++;
             }
 
             break;
@@ -293,7 +367,6 @@ void APP_Tasks(void) {
             /* The default state should never be executed. */
         default:
         {
-            /* TODO: Handle error in application's state machine. */
             break;
         }
     }
