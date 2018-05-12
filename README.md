@@ -61,4 +61,12 @@ Here is circuit board with LCD, IMU communication with PIC32MX250F128B:
 
 ### Week 5
 * Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8/firmware))
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (communication class device) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9/firmware)) 
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9/firmware)) 
+
+### Week 6
+* Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10)) 
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11/firmware))
+
+Here is a plot of raw data, and filtered data:
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot.png" width="500">
+more details about the filter: [check here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/README.md)
