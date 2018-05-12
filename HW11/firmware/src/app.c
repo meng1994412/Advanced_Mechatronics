@@ -203,8 +203,6 @@ void APP_Initialize(void) {
     LCD_init();
     LCD_clearScreen(BLACK);
     __builtin_enable_interrupts();
-
-    //startTime = _CP0_GET_COUNT();
 }
 
 /******************************************************************************
@@ -252,7 +250,7 @@ void APP_Tasks(void) {
             break;
 
         case APP_STATE_MOUSE_EMULATE:
-        
+
             appData.mouseButton[0] = MOUSE_BUTTON_STATE_RELEASED;
             appData.mouseButton[1] = MOUSE_BUTTON_STATE_RELEASED;
 
@@ -271,7 +269,7 @@ void APP_Tasks(void) {
             I2C_read_multiple(IMU_ADDR, 0x20, data, DATA_LEN);
             xAcc = getXAcc(data);
             yAcc = getYAcc(data);
-            zAcc = getZAcc(data);
+            // zAcc = getZAcc(data);
             // xGyro = getXGyro(data);
             // yGyro = getYGyro(data);
             // zGyro = getZGyro(data);
@@ -295,8 +293,8 @@ void APP_Tasks(void) {
             // every 10th loop
             if (inc == 10)
             {
-              appData.xCoordinate = (int8_t) xAcc;
-              appData.yCoordinate = (int8_t) yAcc;
+              appData.xCoordinate = (int8_t) (xAcc * 100);      // since the x accleration is in g's unit (0.001 order) then times 100 to make cursor movement obvious
+              appData.yCoordinate = (int8_t) (yAcc * 100);      // since the y accleration is in g's unit (0.001 order) then times 100 to make cursor movement obvious
               inc = 0;
             }
             else
