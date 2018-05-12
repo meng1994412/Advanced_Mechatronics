@@ -70,4 +70,5 @@ Here is circuit board with LCD, IMU communication with PIC32MX250F128B:
 Here is a plot of raw data, and filtered data:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot.png" width="500">
+
 more details about the filter: [check here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/README.md)
