@@ -27,7 +27,7 @@ def main():
         IIR.append(data[3])
         FIR.append(data[4])
 
-    # change data type from string to float number
+    # change data type from string to float number (python 2.7, for python 3 use eg. raw = list(map(float, raw))
     # print(raw)
     raw = map(float, raw)
     print(raw)
