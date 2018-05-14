@@ -65,7 +65,7 @@ Here is circuit board with LCD, IMU communication with PIC32MX250F128B:
 
 ### Week 6
 * Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10)) 
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11/firmware))
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11))
 
 Here is a plot of raw data, and filtered data:
 
