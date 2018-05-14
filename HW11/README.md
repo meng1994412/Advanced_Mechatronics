@@ -11,5 +11,9 @@
   - `main.c`: main function controls the `app.c`.
   - `mouse.c` & `mouse.h`: Mouse control functions.
   
-  ### Results:
+### Results:
+Here is a demo:
+As we can see from the LCD screen, the imu accelerometer (x and y) controls the mouse.
+
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW11/hw11demo.gif)
   
