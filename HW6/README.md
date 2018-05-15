@@ -21,6 +21,7 @@ Here is the breadboard diagram:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/CircuitDiagram.JPG" width="600">
 
-Here is a demo for LCD display:
+Here is a demo for LCD display (loading bar elongates as number after "Hello, World!" increases):
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/hw6demo.gif)
+
