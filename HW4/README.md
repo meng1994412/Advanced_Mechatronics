@@ -20,4 +20,4 @@ Here is the circuit diagram of breadboard:
 
 Here is the sine wave and triangle wave read by nScope (oscilloscope):
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/nScope%20reading.png" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/nScope%20reading.png" width="800">
