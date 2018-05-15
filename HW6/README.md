@@ -1,5 +1,6 @@
 ## HW6: LCD
 ### Objectives:
+* Build communication between PIC32MX250F128B and TFT LCD via SPI.
 * Create an algorithm to draw string on LCD.
 * Create an algorithm to draw loading bar on LCD.
 * Show a live frames-per-second reading.
