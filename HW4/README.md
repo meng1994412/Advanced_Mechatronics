@@ -5,8 +5,8 @@
 
 ### Approaches:
 * Code instructions:
-  - `main.c`: main function controls the app.c.
-  - `SPI.c` & `SPI.h`: create commnucation between MCP4912 and PIC32 via SPI1.
+  - `main.c`: main function that creates sine wave and triangle wave.
+  - `SPI.c` & `SPI.h`: create commnucation between MCP4912 and PIC32 via SPI1 (includes SPI initialization, SPI input & output, voltage seeting functions).
 
 ### Results:
 
