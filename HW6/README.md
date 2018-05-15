@@ -24,3 +24,4 @@ Here is the breadboard diagram:
 Here is a demo for LCD display:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/hw6demo.gif)
+
