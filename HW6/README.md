@@ -16,13 +16,13 @@
 
 Here is the schematic diagram between TFT LCD and PIC32:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/SchematicDiagram.JPG" width="400">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/Results/SchematicDiagram.JPG" width="400">
 
 Here is the breadboard diagram:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/CircuitDiagram.JPG" width="600">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/Results/CircuitDiagram.JPG" width="600">
 
 Here is a demo for LCD display (loading bar elongates as number after "Hello, World!" increases):
 
-![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/hw6demo.gif)
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW6/Results/hw6demo.gif)
 
