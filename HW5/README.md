@@ -16,14 +16,14 @@
 
 Here is the schematic diagram between MCP23008 and PIC32:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/SchematicDiagram.JPG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/Results/SchematicDiagram.JPG" width="500">
 
 Here is the breadboar circuit diagram:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/CircuitDiagram.JPG" width="700">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/Results/CircuitDiagram.JPG" width="700">
 
 Here is a demo of communication between MCP23008 and PIC32 (The commnucation sets up successfully as LED blinks by pushing the button):
 
-![demo](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/hw5demo.gif)
+![demo](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/Results/hw5demo.gif)
 
-More details about MCP23008 datasheet: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/MCP23008DataSheet.pdf), and I2C communication: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/i2cDataSheet.pdf)
+More details about MCP23008 datasheet: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/Results/MCP23008DataSheet.pdf), and I2C communication: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/Results/i2cDataSheet.pdf)
