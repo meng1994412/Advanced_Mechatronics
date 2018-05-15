@@ -4,7 +4,7 @@
 * Write functions that the DAC outputs a 10Hz sine wave on VoutA and a 5Hz triangle wave on VoutB, updating the values 1000 times a seconds.
 
 ### Approaches:
-* Code instructions:
+* Code instructions (all codes are under `hw4.X/`):
   - `main.c`: main function that creates sine wave and triangle wave.
   - `SPI.c` & `SPI.h`: create commnucation between MCP4912 and PIC32 via SPI1 (includes SPI initialization, SPI input & output, voltage seeting functions).
 
