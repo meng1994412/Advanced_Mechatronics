@@ -13,11 +13,11 @@ Here is a circuit diagram:
 
 Here is a clean voltage diagram with all capacitors on breadboard:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/Results/2_Clean_3.3V_Voltage_Diagram.PNG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/Results/2_Clean_3.3V_Voltage_Diagram.PNG" width="600">
 
 Here is a voltage diagram without any capacitors:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/Results/2_Oscillation_Diagram.PNG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW1/Results/2_Oscillation_Diagram.PNG" width="600">
 
 Here is the breadboard circuit diagram:
 
