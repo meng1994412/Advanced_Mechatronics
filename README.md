@@ -55,7 +55,7 @@ Here is demo of communication between MCP23008 and PIC32:
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW5/hw5demo.gif)
 
 ### Week 4
-* Build communication between PIC32MX250F128B and TFT LCD via SPI. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW6/HW6.X))
+* Build communication between PIC32MX250F128B and TFT LCD via SPI. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW6))
 * Solder IMU breakout board onto heahders pins. ([Picture](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/CircuiteDiagram.JPG))
 * Build communication between PIC32MX250F128B and IMU via I2C. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW7))
 
