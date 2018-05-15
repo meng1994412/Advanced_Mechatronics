@@ -12,14 +12,14 @@
 
 Here is the schematic diagram between MCP4912 and PIC32MX250F128B:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/Schematic_Diagram.JPG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/Results/Schematic_Diagram.JPG" width="500">
 
 Here is the circuit diagram of breadboard:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/circuit%20board.JPG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/Results/circuit%20board.JPG" width="500">
 
 Here is the sine wave and triangle wave read by nScope (oscilloscope):
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/nScope%20reading.png" width="800">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/Results/nScope%20reading.png" width="800">
 
-More information about MCP4912 datasheet: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/MCP4912DataSheet.pdf).
+More information about MCP4912 datasheet: [Here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW4/Results/MCP4912DataSheet.pdf).
