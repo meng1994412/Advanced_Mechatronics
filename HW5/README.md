@@ -8,7 +8,7 @@
 * Connect the RESET pin to MCLR so that the Expander resets when the PIC does.
 * Start by turning on the LED on GP0, then move on to reading GP7.
 * Blink the LED controlled directly by the PIC so that you know the code has not crashed.
-* Code Instructions:
+* Code Instructions (all condes are under `HW5.X/`):
   - `i2c_master_noint.h` & `i2c_master_noint.c`: setup I2C communication.
   - `main.c`: main function that makes communication between MCP23008 and PIC32. 
 
