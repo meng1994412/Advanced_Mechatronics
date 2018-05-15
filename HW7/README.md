@@ -28,3 +28,5 @@ Here is the breadboard diagram:
 Here is a demo of IMU reading on LCD screen:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/hw7demo.gif)
+
+More information about IMU: [check here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/LSM6DS33DataSheet.pdf)
