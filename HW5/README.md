@@ -1,7 +1,7 @@
 ## HW5: I2C IO
 ### Objectives:
 * Build the MCP23008 I/O expander circuit and write a library to communicate with it.
-* Build an LED circuit on pin GP0 and a pushbutton circuit on pin GP7.
+* Build an LED circuit on pin GP0 and a pushbutton circuit on pin GP7 (check the [schematic](* results)).
 * Write functions that use the I/O expander to read pin GP7, and if GP7 is low, output high on GP0, otherwise output low.
 
 ### Approaches:
