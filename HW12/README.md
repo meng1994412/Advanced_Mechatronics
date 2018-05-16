@@ -9,11 +9,11 @@
   
 ### Results:
 
-* Here is a screen of what app looks like:
+Here is a screen of what app looks like:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW12/Results/hw12screen.png" width="400">
 
-* Here is a demo of how app works:
+Here is a demo of how app works:
 
 ![demo](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW12/Results/hw12demo.gif)
 
