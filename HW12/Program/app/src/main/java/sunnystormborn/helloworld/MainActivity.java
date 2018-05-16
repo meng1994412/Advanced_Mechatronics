@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         myControl = (SeekBar) findViewById(R.id.seek1);                 // Initiate SeekBar
 
         myTextView = (TextView) findViewById(R.id.textView01);          // Initiate TextView
-        myTextView.setText("Move the bar to update value or click the button to update / reset value");             // Set text
+        myTextView.setText("Move the bar to or click the button to update value");             // Set text
 
         myPlusButton = (Button) findViewById(R.id.button1);             // Initiate Button
         myMinusButton = (Button) findViewById(R.id.button2);
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void setMyMinusButton() {
         // function to detect when the "-" button is used
