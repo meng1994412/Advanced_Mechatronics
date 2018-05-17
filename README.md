@@ -67,8 +67,12 @@ Here is a demo of IMU reading on LCD screen:
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW7/Results/hw7demo.gif)
 
 ### Week 5
-* Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8/firmware))
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9/firmware)) 
+* Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8))
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
+
+Here is a demo of communication between PIC32 and PuTTY:
+
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW9/Results/hw9demo.gif)
 
 ### Week 6
 * Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10)) 
@@ -76,10 +80,10 @@ Here is a demo of IMU reading on LCD screen:
 
 Here is a plot of raw data, and filtered data:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/filter_plot.png" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/Results/filter_plot2.png" width="500">
 
 more details about the filter: [check here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW10/README.md)
 
 Here is a demo for IMU controlling the mouse on PC via USB communication (HID):
 
-![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW11/hw11demo.gif)
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW11/Results/hw11demo.gif)
