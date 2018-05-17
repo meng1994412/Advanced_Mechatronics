@@ -68,7 +68,7 @@ Here is a demo of IMU reading on LCD screen:
 
 ### Week 5
 * Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8))
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer ([PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html))via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
 
 Here is a demo of communication between PIC32 and PuTTY:
 
