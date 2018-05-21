@@ -68,7 +68,7 @@ Here is a demo of IMU reading on LCD screen:
 
 ### Week 5
 * Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8))
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer ([PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)) via USB (communication class device (CDC)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer ([PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)) via USB (communication class device (CDC)) by using Harmony framework so that PuTTY can obtain data value from IMU. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
 
 Here is a demo of communication between PIC32 and PuTTY:
 
@@ -76,7 +76,7 @@ Here is a demo of communication between PIC32 and PuTTY:
 
 ### Week 6
 * Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10)) 
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11))
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework so that IMU can control the mouse on PC. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11))
 
 Here is a plot of raw data, and filtered data:
 
@@ -87,3 +87,10 @@ more details about the filter: [check here](https://github.com/meng1994412/Cheny
 Here is a demo for IMU controlling the mouse on PC via USB communication (HID):
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW11/Results/hw11demo.gif)
+
+### Week 7
+* Write a simple app (named HelloWorld) for a Android Device ([Moto G](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w) version 4.4.4), which have a slide that displays a value from 0 to 100, and buttons to increase, decrease, and reset the slide bar value. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW12))
+
+Here is a demo of how app works:
+
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW12/Results/hw12demo.gif)
