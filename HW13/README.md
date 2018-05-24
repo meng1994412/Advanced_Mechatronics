@@ -1,6 +1,6 @@
 ## HW13 Android Camera
 ### Objectives:
-* Write a camera app for your Android phone that when pointing the camera at a green object, the app should identify the green shape and draw lines on top of it.
+* Write a camera app (named ColorDetector) for Android device ([Moto G](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w) version 4.4.4) that when pointing the camera at a green object, the app should identify the green shape and draw lines on top of it.
 
 ### Approaches:
 * Code instruction (core codes are under `Program/app/src/main`):
