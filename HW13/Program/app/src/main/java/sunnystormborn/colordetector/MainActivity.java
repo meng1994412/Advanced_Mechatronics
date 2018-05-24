@@ -40,9 +40,10 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     private Paint paint1 = new Paint();
     private TextView mTextView;
     SeekBar myControl;
-    TextView threshold;
+    TextView thresholdValue;
 
     static long prevtime = 0; // for FPS calculation
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +53,9 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         mTextView = (TextView) findViewById(R.id.cameraStatus);
 
         myControl = (SeekBar) findViewById(R.id.seek1);
-        threshold = (TextView) findViewById(R.id.threashView);
-        threshold.setText("Adjust Color Sensitivity (default 50)");
+        thresholdValue = (TextView) findViewById(R.id.threshView);
+        thresholdValue.setText("Adjust Color Sensitivity (default 50)");
+        setMyControlListener();
 
         // see if the app has permission to use the camera
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, 1);
@@ -72,6 +74,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         } else {
             mTextView.setText("no camera permissions");
         }
+
 
     }
 
@@ -111,20 +114,21 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         if (c != null) {
             int thresh = 0; // comparison value
             int[] pixels = new int[bmp.getWidth()]; // pixels[] is the RGBA data
-            int startY = 200; // which row in the bitmap to analyze to read
-            bmp.getPixels(pixels, 0, bmp.getWidth(), 0, startY, bmp.getWidth(), 1);
+            //int startY = 200; // which row in the bitmap to analyze to read
+            for (int startY = 0; startY < bmp.getHeight(); startY++) {
+                bmp.getPixels(pixels, 0, bmp.getWidth(), 0, startY, bmp.getWidth(), 1);
 
-            // in the row, see if there is more green than red
-            for (int i = 0; i < bmp.getWidth(); i++) {
-                if ((green(pixels[i]) - red(pixels[i])) > thresh) {
-                    pixels[i] = rgb(0, 255, 0); // over write the pixel with pure green
+                // in the row, see if there is more green than red
+                for (int i = 0; i < bmp.getWidth(); i++) {
+                    if (((green(pixels[i]) - red(pixels[i])) > thresh) && ((green(pixels[i]) - blue(pixels[i])) > thresh)) {
+                        pixels[i] = rgb(0, 255, 0); // over write the pixel with pure green
+                    }
                 }
+
+                // update the row
+                bmp.setPixels(pixels, 0, bmp.getWidth(), 0, startY, bmp.getWidth(), 1);
             }
-
-            // update the row
-            bmp.setPixels(pixels, 0, bmp.getWidth(), 0, startY, bmp.getWidth(), 1);
         }
-
         // draw a circle at some position
         int pos = 50;
         canvas.drawCircle(pos, 240, 5, paint1); // x position, y position, diameter, color
@@ -149,7 +153,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChanged = progress;
-                threshold.setText("Sensitivity: " + progress);
+                thresholdValue.setText("The value is: " + progress);
             }
 
             @Override
