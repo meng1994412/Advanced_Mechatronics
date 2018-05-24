@@ -55,7 +55,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
 
         myControl = (SeekBar) findViewById(R.id.seek1);
         thresholdValue = (TextView) findViewById(R.id.threshView);
-        thresholdValue.setText("Adjust Color Sensitivity (default 50)");
+        thresholdValue.setText("Adjust Color Sensitivity (default 0)");
         setMyControlListener();
 
         // see if the app has permission to use the camera
