@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     private TextView mTextView;
     SeekBar myControl;
     TextView thresholdValue;
+    int thresh = 0;
 
     static long prevtime = 0; // for FPS calculation
 
@@ -112,7 +113,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
 
         final Canvas c = mSurfaceHolder.lockCanvas();
         if (c != null) {
-            int thresh = 0; // comparison value
+            //int thresh = 0; // comparison value
             int[] pixels = new int[bmp.getWidth()]; // pixels[] is the RGBA data
             //int startY = 200; // which row in the bitmap to analyze to read
             for (int startY = 0; startY < bmp.getHeight(); startY++) {
@@ -153,6 +154,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChanged = progress;
+                thresh = progress;
                 thresholdValue.setText("The value is: " + progress);
             }
 
