@@ -155,7 +155,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChanged = progress;
                 thresh = progress;
-                thresholdValue.setText("The value is: " + progress);
+                thresholdValue.setText("Sensitivity: " + progress);
             }
 
             @Override
