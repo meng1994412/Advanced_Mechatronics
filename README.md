@@ -89,8 +89,13 @@ Here is a demo for IMU controlling the mouse on PC via USB communication (HID):
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW11/Results/hw11demo.gif)
 
 ### Week 7
-* Write a simple app (named HelloWorld) for a Android Device ([Moto G](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w) version 4.4.4), which have a slide that displays a value from 0 to 100, and buttons to increase, decrease, and reset the slide bar value. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW12))
+* Write a simple app (named HelloWorld) for a Android device ([Moto G](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w) version 4.4.4), which have a slide that displays a value from 0 to 100, and buttons to increase, decrease, and reset the slide bar value. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW12))
+* Write a camera app (named ColorDetector)for Android device e ([Moto G](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w) version 4.4.4)that when pointing the camera at a green object, the app should identify the green shape and draw lines on top of it. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW13))
 
-Here is a demo of how app works:
+Here is a demo of how HelloWorld app works:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW12/Results/hw12demo.gif)
+
+Here is a demo for how ColorDetector app works (with adjustable sensitivity) on a RAZER mouse box:
+
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW13/Result/demo.gif)
