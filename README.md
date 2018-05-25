@@ -99,3 +99,19 @@ Here is a demo of how HelloWorld app works:
 Here is a demo for how ColorDetector app works (with adjustable sensitivity) on a RAZER mouse box:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW13/Result/demo.gif)
+
+### Week 8
+* Solder the PCB with components from breadboard. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW14))
+* Build a USB communication (class CDC) between PIC32 PCB and Android phone by writing a PIC32 program and Android app (named My Application), which PIC32 program will send a number to Android phone 5 times per second, and Android app has a slider to update value, a button to press to send the value of the slider to the PIC, a textview to show what was sent to the PIC, and a textview wrapped in a scrollview to show what was received from the PIC. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW14))
+
+Here is the picture for PCB after soldering with components:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBsoldering.JPG" width="500">
+
+Here is the screen of Android app:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/AndroidScreen.png" width="500">
+
+Here is the demo of how communication beteen PIC32 and Android device work:
+
+![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/hw14demo.gif)
