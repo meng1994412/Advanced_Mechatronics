@@ -5,7 +5,7 @@
 * Write an Android app with a slider to update value, a textview to show slider value, a button to press to send the value of the slider to the PIC, a textview to show what was sent to the PIC, and a textview wrapped in a scrollview to show what was received from the PIC.
 
 ### Approaches:
-* PIC32 Program Code instructions (all are under `firmware/src/` ):
+* PIC32 Program Code instructions (all are under `PIC32Program/firmware/src/` ):
   - `app.h` & `app.c`: send a number to the host (either PuTTY or Android device) 5 times per second.
   - `main.c`: main function that controls `app.c`.
 
@@ -20,9 +20,9 @@
 
 Here are two pictures for the front and back of the PCB before soldering:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBfront.JPG">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBfront.JPG", width=500>
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBback.JPG">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBback.JPG", width=500>
 
 Here is the picture for PCB after soldering with components:
 
