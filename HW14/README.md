@@ -20,17 +20,17 @@
 
 Here are two pictures for the front and back of the PCB before soldering:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBfront.JPG", width=500>
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBfront.JPG" width="400">
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBback.JPG", width=500>
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBback.JPG" width="400">
 
 Here is the picture for PCB after soldering with components:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBsoldering.JPG">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/PCBsoldering.JPG" width="500">
 
 Here is the screen of Android app:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/AndroidScreen.png">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/AndroidScreen.png" width="500">
 
 Here is the demo of how communication beteen PIC32 and Android device work:
 
