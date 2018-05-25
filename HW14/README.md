@@ -1,7 +1,7 @@
 ## HW14: Android USB
 ### Objectives:
 * Solder the PCB with components from breadboard including PIC32MX250F128B, buttons, capacitors, resistors, regulators, LEDS, USB mini connector, female header pins, right programmer headers, switch.
-* Write a PIC32 program (USB communication with class CDC) that the PIC32 will send a number to the host (eg. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), [Android Phone]((https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w))) 5 times per second.
+* Write a PIC32 program (USB communication with class CDC) that the PIC32 will send a number to the host (eg. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), [Android phone](https://www.amazon.com/gp/product/B00HPP3VW2/ref=s9_acsd_hps_bw_c_x_4_w)) 5 times per second.
 * Write an Android app with a slider to update value, a textview to show slider value, a button to press to send the value of the slider to the PIC, a textview to show what was sent to the PIC, and a textview wrapped in a scrollview to show what was received from the PIC.
 
 ### Approaches:
