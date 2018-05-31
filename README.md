@@ -12,6 +12,7 @@
 * [MPLAB Harmony Integrated Software Framework v2.05.01](http://www.microchip.com/mplab/mplab-harmony)
 * [EAGLE PCB](https://www.autodesk.com/products/eagle/free-download)
 * [Android Studio](https://developer.android.com/studio/)
+* [SolidWorks](https://www.solidworks.com/)
 
 ## Hardware Used
 * [Microchip(PIC32MX250F128B)](http://www.microchip.com/wwwproducts/en/PIC32MX250F128B)
