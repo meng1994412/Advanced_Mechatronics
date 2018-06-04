@@ -116,3 +116,14 @@ Here is the screen of Android app:
 Here is the demo of how communication beteen PIC32 and Android device work:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/hw14demo.gif)
+
+### Week 9 
+* Designed the wheel part and robot box parts by using [SolidWorks](https://www.solidworks.com/). ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW15))
+
+Here is a picture of wheel design:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Wheel/Wheel.PNG" width="400">
+
+Here is a picture of box assembly design:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Box/Box.PNG" width="600">
