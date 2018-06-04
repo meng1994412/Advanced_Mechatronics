@@ -11,8 +11,8 @@
 
 Here is a picture of wheel design:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Wheel/Wheel.PNG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Wheel/Wheel.PNG" width="400">
 
 Here is a picture of box assembly design:
 
-<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Box/Box.PNG" width="500">
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Box/Box.PNG" width="600">
