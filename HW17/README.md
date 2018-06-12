@@ -1,6 +1,11 @@
 ## HW17: Image Processing
 ### Objectives:
-* Build an image processing app on Android device so that the robot is able to detect the road on the map.
+* Build an image processing app on Android device so that the robot is able to detect the road on the [map](#results).
+
+### Approaches:
+* Android App core codes are under `AndroidProgram/app/src/main`
+
+### Results:
 
 Here is what map looks like:
 
