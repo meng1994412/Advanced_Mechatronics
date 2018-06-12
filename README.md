@@ -127,3 +127,7 @@ Here is a picture of wheel design:
 Here is a picture of box assembly design:
 
 <img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW15/Box/Box.PNG" width="600">
+
+### Week 10
+* Make PI controller for wheel velocity and steering. ([here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW16))
+* Build an image processing app on Android device so that the robot is able to detect the road on the [map](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW17/Results/techCup2018.png). ([here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW17)).
