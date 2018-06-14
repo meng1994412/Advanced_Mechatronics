@@ -30,23 +30,6 @@ void __ISR(_TIMER_4_VECTOR, IPL4SOFT) Timer4ISR(void) {
     speed_error = get_difference();
     float kp = 2.6;
 
-
-    if (-15 <= speed_error && speed_error <= 15) {
-        MAX_DUTY = 1660;
-    } else if (speed_error < -15) {
-        speed_error = -speed_error;
-        MAX_DUTY = 1900 - speed_error * 5;
-        if(MAX_DUTY < 1200){
-            MAX_DUTY = 1200;
-        }
-    } else {
-        MAX_DUTY = 1900 - speed_error * 5;
-        if(MAX_DUTY < 1200){
-            MAX_DUTY = 1200;
-        }
-    }
-
-
     if (center_mass_low == 0) {
         MAX_DUTY = 1510;
         center_mass_low = center_mass_low_old;
