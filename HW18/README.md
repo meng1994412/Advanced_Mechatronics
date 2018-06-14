@@ -2,7 +2,7 @@
 ### Objectives:
 * Utilize 3D printer to produce the wheels of the robot.
 * Utilize laser cutting machine to produce the robot box.
-* Assemble the all the parts together
+* Assemble the all the parts together.
 * Combine the image processing on Android device and PI controller on PIC32 together.
 
 ### Approaches:
