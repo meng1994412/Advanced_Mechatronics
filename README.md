@@ -69,14 +69,14 @@ Here is a demo of IMU reading on LCD screen:
 
 ### Week 5
 * Rebuild communication between PIC32MX250F128B and IMU via I2C by using Harmony framework. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW8))
-* Build communication between PIC32MX250F128B (including IMU, LCD) and computer ([PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)) via USB (communication class device (CDC)) by using Harmony framework so that PuTTY can obtain data value from IMU. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9)) 
+* Build communication between PIC32MX250F128B (including IMU, LCD) and computer ([PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)) via USB (communication class device (CDC)) by using Harmony framework so that PuTTY can obtain data value from IMU. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW9))
 
 Here is a demo of communication between PIC32 and PuTTY:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW9/Results/hw9demo.gif)
 
 ### Week 6
-* Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10)) 
+* Add digital signal processing (DSP) filter, including moving average filter (MAF), finite impulse response filter (FIR), and infinite impulse response filter (IIR), on z accleration of IMU to get rid of high frequency noises. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW10))
 * Build communication between PIC32MX250F128B (including IMU, LCD) and computer via USB (human interface device (HID)) by using Harmony framework so that IMU can control the mouse on PC. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW11))
 
 Here is a plot of raw data, and filtered data:
@@ -117,7 +117,7 @@ Here is the demo of how communication beteen PIC32 and Android device work:
 
 ![demo1](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW14/Results/hw14demo.gif)
 
-### Week 9 
+### Week 9
 * Designed the wheel part and robot box parts by using [SolidWorks](https://www.solidworks.com/). ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW15))
 
 Here is a picture of wheel design:
@@ -131,3 +131,17 @@ Here is a picture of box assembly design:
 ### Week 10
 * Make PI controller for wheel velocity and steering. ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW16))
 * Build an image processing app on Android device so that the robot is able to detect the road on the [map](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW17/Results/techCup2018.png). ([details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW17)).
+
+* Utilize 3D printer to produce the wheels of the robot.
+* Utilize laser cutting machine to produce the robot box.
+* Assemble the all the parts together.
+* Combine the image processing on Android device and PI controller on PIC32 together.
+* For final project check [details here](https://github.com/meng1994412/ChenyangMeng_ME433_2018/tree/master/HW18).
+
+Here is a picture of the robot:
+
+<img src="https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW18/Results/robot.JPG" width="600">
+
+Here is a demo for the robot following map:
+
+![demo](https://github.com/meng1994412/ChenyangMeng_ME433_2018/blob/master/HW18/Results/demo.gif)
