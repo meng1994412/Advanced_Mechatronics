@@ -2,6 +2,7 @@
 ## Project Obejctives
 * Design, solder, and debug a printed circuit board (PCB).
 * Implement advanced digital communication protocals like SPI, I2C, USB, CAN.
+* Design the prototype with SolidWorks.
 * Create physical prototypes with a laser cutter, and a 3D printer.
 * Interface with Android device.
 
